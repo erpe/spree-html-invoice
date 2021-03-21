@@ -4,7 +4,8 @@ en:
   spree:
     footer_right: "Company  <br/>Phone  <br/> www "
     footer_right2: " My great company <br/>040 146 1222 <br/>  www.gohereoften.com"
-
+    bank_label: "Bank Account"
+    bank_account: "Bank IBAN BIC"
     size: "Size"
     price: "Price"
     order_date: "Order date"
