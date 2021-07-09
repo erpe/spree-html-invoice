@@ -9,7 +9,11 @@ module Spree
         if (anonymous && Spree::HtmlInvoice::Config[:suppress_anonymous_address]) || !bill_address
           all_addresses = [[" "," "]] * 5
         else
-          all_addresses = [[ "#{bill_address.firstname} #{bill_address.lastname}", "#{ship_address.firstname} #{ship_address.lastname}"]]
+          c1 = bill_address.company
+          c2 = ship_address.company
+          all_addresses = [[c1, c2]]
+          #all_addresses = [[ "#{bill_address.firstname} #{bill_address.lastname}", "#{ship_address.firstname} #{ship_address.lastname}"]]
+          all_addresses << [ "#{bill_address.firstname} #{bill_address.lastname}", "#{ship_address.firstname} #{ship_address.lastname}"]
           all_addresses << [bill_address.address1, ship_address.address1]
           unless bill_address.address2.blank? || ship_address.address2.blank? || (bill_address.address2 =~ /\d{3,6}-\d/) || (ship_address.address2 =~ /\d{3,6}-\d/)
             all_addresses << [bill_address.address2, ship_address.address2]
